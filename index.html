@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>Gala Jeunes Blogueurs 2025 | Cérémonie & Récompenses</title> 
+    
+    <meta name="description" content="Découvrez le Gala Jeunes Blogueurs 2025 ! Compte à rebours avant la cérémonie annuelle récompensant la nouvelle génération de créateurs de contenu.">
+    
+    <meta name="keywords" content="Gala Jeunes Blogueurs, Récompense Blog, Cérémonie 2025, Blogueurs Francophones, Créateurs de Contenu">
+    
+    <link rel="canonical" href="https://votredomaine.com/gala-blogueurs-2025"> 
+    
+    <meta property="og:title" content="Gala Jeunes Blogueurs 2025">
+    <meta property="og:description" content="Découvrez le Gala Jeunes Blogueurs 2025 : Compte à rebours avant la cérémonie annuelle de récompenses.">
+    <meta property="og:image" content="https://votredomaine.com/image-gala-promo.jpg"> 
+    <meta property="og:url" content="https://votredomaine.com/gala-blogueurs-2025">
+    <meta property="og:type" content="website">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@VotreCompteTwitter">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="icon" href="Logo.png" type="image/png" >
+    
+    <style>
+      body {
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+
+    <section class="min-h-screen flex flex-col items-center justify-center bg-indigo-50">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-end items-center">
+            
+            <img src="logo.png" alt="Logo de l'événement" class="h-14 w-auto rounded-md shadow-sm">
+            
+        </div>
+        
+        <h2 class="text-4xl sm:text-5xl font-extrabold text-indigo-700 mb-4 tracking-tight">
+            GALA JEUNES BLOGUEURS 2025
+        </h2>
+
+        <p class="text-xl font-semibold text-gray-700 mb-4">⏳ Événement Spécial dans :</p>
+        
+        <div id="countdown-timer" class="flex space-x-4 sm:space-x-8 text-center text-gray-900 mb-4">
+            
+            <div class="p-3 sm:p-5 bg-white rounded-lg shadow-md min-w-[70px]">
+                <div id="days" class="text-3xl sm:text-5xl font-bold text-indigo-600">00</div>
+                <div class="text-xs sm:text-sm text-gray-500 mt-1">Jours</div>
+            </div>
+            
+            <div class="p-3 sm:p-5 bg-white rounded-lg shadow-md min-w-[70px]">
+                <div id="hours" class="text-3xl sm:text-5xl font-bold text-indigo-600">00</div>
+                <div class="text-xs sm:text-sm text-gray-500 mt-1">Heures</div>
+            </div>
+            
+            <div class="p-3 sm:p-5 bg-white rounded-lg shadow-md min-w-[70px]">
+                <div id="minutes" class="text-3xl sm:text-5xl font-bold text-indigo-600">00</div>
+                <div class="text-xs sm:text-sm text-gray-500 mt-1">Minutes</div>
+            </div>
+            
+            <div class="p-3 sm:p-5 bg-white rounded-lg shadow-md min-w-[70px]">
+                <div id="seconds" class="text-3xl sm:text-5xl font-bold text-indigo-600">00</div>
+                <div class="text-xs sm:text-sm text-gray-500 mt-1">Secondes</div>
+            </div>
+
+        </div>
+        
+        <p id="countdown-message" class="text-2xl font-bold text-red-600 mt-4 hidden">🎉 L'événement est arrivé !</p>
+
+        <button id="button-player-1" type="button" data-player-id="player1" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2">
+            <audio controls src="audio1.mp3"></audio>
+        </button>
+        <button id="button-player-2" type="button" data-player-id="player2" class=" text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2">
+            <audio controls src="audio2.mp3"></audio>
+        </button>
+        <button id="button-player-3" type="button" data-player-id="player3" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2">
+            <audio controls src="audio1.mp3"></audio>
+        </button>
+    </section>
+
+    <script>
+        // 1. Définir la date de fin (27 novembre 2025 à 23h59)
+        // Note: La date est fixée à l'année 2025.
+        const END_DATE = new Date("November 27, 2025 23:59:00").getTime();
+
+        // 2. Mettre à jour le compte à rebours toutes les 1000 millisecondes (1 seconde)
+        const countdownInterval = setInterval(function() {
+
+            const now = new Date().getTime();
+            const distance = END_DATE - now;
+
+            // Calculer les jours, heures, minutes et secondes
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // 3. Afficher le résultat
+            if (distance > 0) {
+                // padStart(2, '0') assure l'affichage de deux chiffres (ex: 05 au lieu de 5)
+                document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+                document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+                document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+                document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+            }
+
+            // 4. Si le compte à rebours est terminé
+            if (distance < 0) {
+                clearInterval(countdownInterval); 
+                document.getElementById("countdown-timer").style.display = 'none'; 
+                document.getElementById("countdown-message").classList.remove('hidden'); 
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
