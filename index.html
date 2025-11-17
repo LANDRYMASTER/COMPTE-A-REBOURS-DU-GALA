@@ -29,11 +29,30 @@
       body {
         font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
       }
+      #main-content-section {
+        position: relative; 
+    }
+
+    /* NOUVELLES RÈGLES CSS POUR L'ANIMATION */
+    @keyframes gradient-shift {
+        0% { background-position: 0% 50%; } /* Position de départ du dégradé */
+        50% { background-position: 100% 50%; } /* Position milieu */
+        100% { background-position: 0% 50%; } /* Retour à la position de départ */
+    }
+
+    .animated-gradient {
+        /* Définit la taille du fond pour permettre le mouvement */
+        background-size: 400% 400%; 
+        /* Applique l'animation : nom, durée, fonction de temps, répétition */
+        animation: gradient-shift 5s ease-in-out infinite;
+    }
     </style>
 </head>
 <body class="bg-white min-h-screen flex flex-col">
 
-    <section class="min-h-screen flex flex-col items-center justify-center bg-indigo-50">
+    <section id="main-content-section" class="flex flex-col items-center justify-center min-h-screen 
+                                                bg-gradient-to-r from-indigo-100 via-purple-400 to-pink-400 
+                                                animated-gradient">
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-end items-center">
             
@@ -87,7 +106,7 @@
     <script>
         // 1. Définir la date de fin (27 novembre 2025 à 23h59)
         // Note: La date est fixée à l'année 2025.
-        const END_DATE = new Date("November 27, 2025 23:59:00").getTime();
+        const END_DATE = new Date("December 06, 2025 23:59:00").getTime();
 
         // 2. Mettre à jour le compte à rebours toutes les 1000 millisecondes (1 seconde)
         const countdownInterval = setInterval(function() {
